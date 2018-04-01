@@ -41,7 +41,6 @@ Things you may want to cover:
 |Column|Tyoe|Options|
 |------|----|-------|
 |name|string|index: true, null: false, unique: true|
-|mail|string|null:false, unique: true|
 
 ### Association
 - has_many :groups, through: members
