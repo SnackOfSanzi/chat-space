@@ -54,7 +54,7 @@ Things you may want to cover:
 
 |Column|Tyoe|Options|
 |------|----|-------|
-|body|text|null: false
+|body|text|
 |image|string|
 |group_id|integer|null: false, forget_key: true|
 |user_id|integer|null: folse, forget_key: true|
