@@ -55,8 +55,8 @@ Things you may want to cover:
 |------|----|-------|
 |body|text|
 |image|string|
-|group_id|integer|null: false, forget_key: true|
-|user_id|integer|null: folse, forget_key: true|
+|group|reference|null: false, forget_key: true|
+|user|reference|null: folse, forget_key: true|
 
 ### Association
 - belongs_to :user
