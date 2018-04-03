@@ -1,0 +1,131 @@
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.main__body{
+  height: 100vh;
+  width: calc(100% - 300px);
+  float: right;
+    &__header{
+      @include clearfix();
+      height: 105px;
+      border: 1px solid #eeeeee;
+      a{
+        padding: 10px 20px;
+        font-weight: bold;
+        border: solid 3px #000000;
+        border: 1px solid $mf_color;
+        color: $mf_color;
+        float: right;
+        margin: 28px 20px 0;
+       }
+      h2{
+        color: #333;
+        font-size: 20px;
+        margin: 35px 40px 15px;
+      }
+       p{
+        color: $subcolor;
+        font-size: $subfont_size;
+        margin: 0 40px;
+       }
+    }
+    .messeges__body{
+      height: calc( 100% - 15% - 90px);
+      width: 100%;
+      background-color: white;
+      &__list{
+        padding-top: 46px;
+        padding-left: 40px;
+        &__1{
+          @include clearfix();
+          padding: 20px;
+          .div.messages__name{
+            font-size: 16px;
+            color: $text_color;
+            font-weight: bold;
+            float: left;
+            }
+          .div.messages__time{
+            padding: 0 10px 10px;
+            float: left;
+            color: $subcolor;
+            font-size: $subfont_size;
+          }
+          .div.messages__text{
+            color: $text_color;
+            clear: both;
+          }
+        }
+        &__2{
+          @include clearfix();
+          padding: 20px;
+          .div.messages__name{
+            font-size: 16px;
+            color: $text_color;
+            font-weight: bold;
+            float: left;
+            }
+          .div.messages__time{
+            padding: 0 10px 10px;
+            float: left;
+            color: $subcolor;
+            font-size: $subfont_size;
+          }
+          .div.messages__text{
+            color: $text_color;
+            clear: both;
+          }
+        }
+      }
+    }
+    .footer__body{
+      height: 90px;
+      width: 100%;
+      background-color: #EEEEEE;
+      &--form{
+        margin: 0 40px;
+        position: relative;
+        &--text{
+          input > label {
+            display:none;
+          }
+          .submit {
+            color: white;
+           background-color: #1E90FF;
+           font-size: 20px;
+           height: 50px;
+           width: 100px;
+           margin-left: 10px;
+           border: none;
+          }
+          input.message{
+            height: 50px;
+            width: calc(100% - 130px);
+            margin-top: 20px;
+            padding-left: 10px;
+            font-size: 16px;
+            color: $text_color;
+            border: none;}
+            label{
+              height: 50px;
+              width: 40px;
+              margin: 20px 130px 20px 0;
+              position: absolute;
+              top: 0;
+              right: 0;
+            }
+             .fa-image{
+              font: 20px FontAwesome;
+             position: absolute;
+             top: 15px;
+             left: 15px;
+        }
+      }
+    }
+  }
+}
