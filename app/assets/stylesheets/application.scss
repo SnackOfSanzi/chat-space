@@ -1,1 +1,18 @@
+
+
+html body{
+  height: 100%;
+  width:  100%;
+}
+ p.header{
+    background-color: #1E90FF;
+    width: 100%;
+    text-align: center;
+    color: white;
+  }
 @import "./reset";
+@import "./variable";
+@import "./main__body";
+@import "./side__body";
+@import "font-awesome";
+

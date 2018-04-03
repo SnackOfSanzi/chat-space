@@ -1,9 +1,10 @@
 !!!
-
-%h1 Messages#index
-%p Find me in app/views/messages/index.html.haml
-
-
-%html
+%html{lang: "ja"}
+  %head
+    %meta{charset: "utf-8"}
   %body
-    hello world!
+    %p.header チャットグループが作成されました
+  = render partial: "main__body";
+  = render partial: "side__body";
+
+
