@@ -12,7 +12,7 @@
   float: right;
     &__header{
       @include clearfix();
-      height: 15%;
+      height: 105px;
       border: 1px solid #eeeeee;
       a{
         padding: 10px 20px;
