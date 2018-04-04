@@ -1,14 +1,9 @@
 
-
-html body{
-  height: 100%;
-  width:  100%;
-}
-@import "./flash";
 @import "./reset";
 @import "./variable";
 @import "./main__body";
 @import "./side__body";
-@import "font-awesome";
+@import "./font-awesome";
 @import "./user";
-
+@import "./flash";
+@import "./groups";
