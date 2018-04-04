@@ -1,11 +1,13 @@
-.flash{
-  color: $white;
-  text-align: center;
-  &__alert{
-    background-color: red;
-  }
-  &__notice{
+.notification {
+  .notice {
     background-color: blue;
+    color: white;
+    text-align: center;
   }
 
+  .alert {
+    background-color: orange;
+    color: white;
+    text-align: center;
+  }
 }
