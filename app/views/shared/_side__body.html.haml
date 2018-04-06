@@ -1,0 +1,19 @@
+.side__body
+  .side__body--top
+    %h3.side__body--top__name
+      = current_user.name
+    .side__body--top__edit
+      = link_to new_group_path do
+        %i.fas.fa-edit
+    .side__body--top__configuration
+      = link_to edit_user_path(current_user) do
+        %i.fas.fa-certificate
+  .side__main
+    .side__main__group
+      .side__group1
+        - current_user.groups.each do |group|
+          = link_to group_messages_path(group) do
+            .div.group__name
+              =  group.name
+            .div.group__message
+              まだありません
