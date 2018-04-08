@@ -61,26 +61,7 @@
             clear: both;
           }
         }
-        &__2{
-          @include clearfix();
-          padding: 20px;
-          .div.messages__name{
-            font-size: 16px;
-            color: $text_color;
-            font-weight: bold;
-            float: left;
-            }
-          .div.messages__time{
-            padding: 0 10px 10px;
-            float: left;
-            color: $subcolor;
-            font-size: $subfont_size;
-          }
-          .div.messages__text{
-            color: $text_color;
-            clear: both;
-          }
-        }
+
       }
     }
     .footer__body{
@@ -103,7 +84,7 @@
            margin-left: 10px;
            border: none;
           }
-          input.message{
+          .message{
             height: 50px;
             width: calc(100% - 130px);
             margin-top: 20px;
@@ -111,20 +92,28 @@
             font-size: 16px;
             color: $text_color;
             border: none;}
-            label{
+           .form__mask{
               height: 50px;
               width: 40px;
               margin: 20px 130px 20px 0;
               position: absolute;
               top: 0;
               right: 0;
-            }
-             .fa-image{
-              font: 20px FontAwesome;
-             position: absolute;
-             top: 15px;
-             left: 15px;
-        }
+              .form__mask__image{
+                font-size: 20px;
+                line-height: 50px;
+
+                .icon{
+                 font: 20px FontAwesome;
+                 position: absolute;
+                 top: 15px;
+                 left: 15px;
+               }
+                .hidden{
+                  display: none;
+                 }
+      }
+    }
       }
     }
   }
