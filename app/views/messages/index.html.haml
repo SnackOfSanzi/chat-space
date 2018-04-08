@@ -3,5 +3,5 @@
   %head
     %meta{charset: "utf-8"}
   %body
-  = render "shared/main__body";
-  = render "shared/side__body";
+  = render "shared/main__body", messages: @messages;
+  = render "shared/side__body", messages: @messages;

@@ -1,30 +1,25 @@
 .main__body
   .main__body__header
-    = link_to  do
+    = link_to edit_group_path(@group) do
       %h3 edit
-    %h2 Sampleグループ
-    %p member neo neko
-
+    .main__body__header__name
+      = @group.name
+    .main__body__header__member
+      = "Member: #{@group.users.map(&:name).join(" ")}"
   .messeges__body
     .messeges__body__list
-      .messeges__body__list__1
-        .div.messages__name
-          ryouskemaehira
-        .div.messages__time
-          2016/10/02 06:27:14
-        .div.messages__text
-          お腹すいた
-      .messeges__body__list__2
-        .div.messages__name ryousukemaehira
-        .div.messages__time 2016/10/02 06:27:07
-        .div.messages__text なるほど
+      = render partial: 'shared/message', collection: messages
   .footer__body
     .footer__body--form
       .footer__body--form--text
-        %input{ :placeholder => "type a message", :class => "message"}
-          %label{ :class => "icon", :for => ""}
-            =link_to do
-              %i.fa.fa-image
-        %input{ :type => "submit", :value => "send", :class => "submit"}
+        = form_for [@group, @message] do |f|
+          = f.text_field :body, class: 'message', placeholder: 'type a message'
+          .form__mask
+            = f.label :image, class: 'form__mask__image' do
+              = fa_icon 'picture-o', class: 'icon'
+              = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'submit'
+
+
 
 
