@@ -23,4 +23,6 @@ params.require(:message).permit(:body,:image).merge(user_id: current_user.id)
   def set_group
     @group = Group.find(params[:group_id])
   end
+  def edit
+  end
 end
