@@ -38,25 +38,26 @@
       height: calc( 100% - 15% - 90px);
       width: 100%;
       background-color: white;
+      overflow: scroll;
       &__list{
         padding-top: 46px;
         padding-left: 40px;
         &__1{
           @include clearfix();
           padding: 20px;
-          .div.messages__name{
+          .messages__name{
             font-size: 16px;
             color: $text_color;
             font-weight: bold;
             float: left;
             }
-          .div.messages__time{
+          .messages__time{
             padding: 0 10px 10px;
             float: left;
             color: $subcolor;
             font-size: $subfont_size;
           }
-          .div.messages__text{
+          .messages__text{
             color: $text_color;
             clear: both;
           }
