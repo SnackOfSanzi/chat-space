@@ -37,7 +37,7 @@ function buildHTML(message){
       var html = buildHTML(data);
       $('.messeges__body__list').append(html)
       $('.message').val('')
-      $('input[type=file]').val('');
+      $('.hidden').val('');
       $('.messeges__body').animate({scrollTop: $('.messeges__body')[0].scrollHeight}, 'fast');
        $('.submit').removeAttr("disabled");
     })
