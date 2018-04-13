@@ -5,6 +5,10 @@ class Message < ApplicationRecord
   # validates :image, presence: true
   validates :body_or_image, presence: true
 
+  def time_formats
+    Time.now.to_s(:datetime)
+  end
+
   private
 
   def body_or_image
