@@ -1,5 +1,6 @@
 $(function() {
-  var search_name = $("#user-search-result");
+  var inputName = $("#user-search-field")
+  var searchName = $("#user-search-result");
 
   function appendUser(user)  {
       var html =`<div class="chat-group-form__field--right--search">
@@ -8,7 +9,7 @@ $(function() {
                       <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
                   </div>
                </div>`
-    search_name.append(html);
+    searchName.append(html);
   }
 
   function groupUser(id, name){
@@ -20,9 +21,8 @@ $(function() {
      return html;
     }
 
-  $("#user-search-field").on("keyup ", function() {
-    var input = $("#user-search-field").val();
-    console.log(input);
+  $(inputName).on("keyup ", function() {
+    var input = $(inputName).val();
 
     $.ajax({
       type: 'GET',
@@ -32,15 +32,13 @@ $(function() {
       dataType: 'json'
     })
     .done(function(users){
-      $("#user-search-result").empty();
+      $(searchName).empty();
       if (users.length !== 0) {
         users.forEach(function(user){
         appendUser(user);
-          console.log(3);
         });
-      }
-      if (users.length === 0) {
-       $(":text").append("一致するユーザーはいませんでした");
+      }else {
+       $(searchName).append("一致するユーザーはいませんでした");
       };
     });
   });
