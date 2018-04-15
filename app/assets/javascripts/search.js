@@ -13,7 +13,7 @@ $(function() {
   }
 
   function groupUser(id, name){
-    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
                         <input name='group[user_ids][]' type='hidden' value='${id}'>
                         <p class='chat-group-user__name'>${name}</p>
                         <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
@@ -42,12 +42,15 @@ $(function() {
       };
     });
   });
+
   $(document).on('click', '.chat-group-user__btn--add',function(){
-    var user_id = $(this).data('user-id')
-    var name = $(this).data('user-name')
-    $('#chat-group-users').append(groupUser(user_id, name));
+    var userId = $(this).data('userId')
+    var name = $(this).data('userName')
+    $('#chat-group-users').append(groupUser(userId, name));
+    $('#chat-group-user-8').attr("id","chat-group-user-" + "current_user.id");
     $(this).parent().remove();
   });
+
   $(document).on('click', '.chat-group-user__btn--remove',function(){
     $('#chat-group-user-8').remove();
   });
