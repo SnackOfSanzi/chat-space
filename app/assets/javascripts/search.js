@@ -47,7 +47,6 @@ $(function() {
     var userId = $(this).data('userId')
     var name = $(this).data('userName')
     $('#chat-group-users').append(groupUser(userId, name));
-    $('#chat-group-user-8').attr("id","chat-group-user-" + "current_user.id");
     $(this).parent().remove();
   });
 
