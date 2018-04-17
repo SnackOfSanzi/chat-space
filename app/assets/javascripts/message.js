@@ -70,12 +70,12 @@ function buildHTML(message){
       })
 
     .done(function(data){
-      var insertHTML = '';
-      $.each(data, function(i, data){
-        insertHTML += buildHTML(data);
-        $('.messeges__body__list').append(insertHTML);
+    if (data.length) {
+      data.forEach(function(messages){
+        $('.messeges__body__list').append(buildHTML(messages));
         $('.messeges__body').animate({scrollTop: $('.messeges__body')[0].scrollHeight}, 'fast');
       });
+    }
     })
     .fail(function(){
       alert('自動更新に失敗しました');
