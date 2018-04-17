@@ -2,7 +2,6 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :group
   mount_uploader :image, ImageUploader
-  # validates :image, presence: true
   validates :body_or_image, presence: true
 
   def time_formats
