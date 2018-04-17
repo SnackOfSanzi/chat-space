@@ -7,6 +7,7 @@ before_action :set_group, only: [:edit, :update]
 
   def new
     @group = Group.new
+
   end
 
   def create
