@@ -1,9 +1,10 @@
 $(function(){
 function buildHTML(message){
-  var image = (message.image.url == null) ? ' ' : `<img src= ${message.image.url} >`
+  var image = (message.image.url === null) ? ' ' : `<img src= ${message.image.url} >`
 
-      var html = `<div class= messeges__body__list__1>
-                    <div class=messages__name>
+      var html = `<div class= messages data-id="${message.id}">
+                    <div class= messeges__body__list__1 >
+                    <div class=messages__name >
                       ${message.name}
                     </div>
                     <div class=messages__time>
@@ -16,7 +17,8 @@ function buildHTML(message){
                             ${image}
                          </p>
                       </div>
-                  </div>`
+                  </div>
+                </div>`
 
  return html;
 
@@ -47,4 +49,35 @@ function buildHTML(message){
     })
 
   });
+   var interval = setInterval(update, 5000);
+
+  function update(){
+      var messageId = $('.messages:last').data('id');
+       console.log('自動更新中')
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+
+      $.ajax({
+        url: location.href,
+        type: 'GET',
+        data: {
+          message: { id: messageId }
+        },
+        dataType: 'json'
+      })
+
+    .done(function(data){
+      var insertHTML = '';
+      $.each(data, function(i, data){
+        insertHTML += buildHTML(data);
+        $('.messeges__body__list').append(insertHTML);
+        $('.messeges__body').animate({scrollTop: $('.messeges__body')[0].scrollHeight}, 'fast');
+      });
+    })
+    .fail(function(){
+      alert('自動更新に失敗しました');
+    })
+    } else {
+      clearInterval(interval);
+      console.log('自動更新停止')
+     }}
 });
