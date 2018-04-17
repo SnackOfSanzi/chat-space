@@ -3,7 +3,7 @@
     .messages__name
       = message.user.name
     .messages__time
-      = message.created_at
+      = message.created_at.to_s(:datetime)
     .messages__text
       - if message.body.present?
         %p.message__content
