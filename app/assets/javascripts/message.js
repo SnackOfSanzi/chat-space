@@ -24,9 +24,14 @@ function buildHTML(message){
 
 }
   $('#new_message').on('submit', function(e){
+    if ($("input[name='message[body]']").val() == '' && $("input[name='message[image]']").val() == "") {
+    alert('入力してください');
+    return false;
+    } else {
     e.preventDefault();
     var formData = new FormData(this);
      var url = $(this).attr('action')
+   }
    $.ajax({
       url: url,
       type: "POST",
