@@ -58,14 +58,13 @@ function buildHTML(message){
 
   function update(){
       var messageId = $('.messages:last').data('id');
-       console.log('自動更新中')
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
 
       $.ajax({
         url: location.href,
         type: 'GET',
         data: {
-          message: { id: messageId }
+          id: messageId
         },
         dataType: 'json'
       })
@@ -83,6 +82,5 @@ function buildHTML(message){
     })
     } else {
       clearInterval(interval);
-      console.log('自動更新停止')
      }}
 });
