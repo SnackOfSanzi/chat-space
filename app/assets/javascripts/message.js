@@ -20,9 +20,9 @@ function buildHTML(message){
                   </div>
                 </div>`
 
- return html;
-
+return html;
 }
+
   $('#new_message').on('submit', function(e){
     if ($("input[name='message[body]']").val() == '' && $("input[name='message[image]']").val() == "") {
     alert('入力してください');
@@ -31,8 +31,8 @@ function buildHTML(message){
     e.preventDefault();
     var formData = new FormData(this);
      var url = $(this).attr('action')
-   }
-   $.ajax({
+    }
+    $.ajax({
       url: url,
       type: "POST",
       data: formData,
@@ -52,12 +52,12 @@ function buildHTML(message){
       alert('メッセージを入力してください');
       $('.submit').removeAttr("disabled");
     })
-
   });
-   var interval = setInterval(update, 5000);
+
+    var interval = setInterval(update, 5000);
 
   function update(){
-      var messageId = $('.messages:last').data('id');
+    var messageId = $('.messages:last').data('id');
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
 
       $.ajax({
@@ -69,18 +69,19 @@ function buildHTML(message){
         dataType: 'json'
       })
 
-    .done(function(data){
-    if (data.length) {
-      data.forEach(function(messages){
-        $('.messeges__body__list').append(buildHTML(messages));
-        $('.messeges__body').animate({scrollTop: $('.messeges__body')[0].scrollHeight}, 'fast');
-      });
-    }
-    })
-    .fail(function(){
-      alert('自動更新に失敗しました');
-    })
+      .done(function(data){
+        if (data.length) {
+          data.forEach(function(messages){
+            $('.messeges__body__list').append(buildHTML(messages));
+            $('.messeges__body').animate({scrollTop: $('.messeges__body')[0].scrollHeight}, 'fast');
+          });
+        }
+      })
+      .fail(function(){
+        alert('自動更新に失敗しました');
+      })
     } else {
       clearInterval(interval);
-     }}
+    }
+  }
 });
