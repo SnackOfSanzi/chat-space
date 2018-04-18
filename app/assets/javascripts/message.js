@@ -25,13 +25,14 @@ return html;
 
   $('#new_message').on('submit', function(e){
     if ($("input[name='message[body]']").val() == '' && $("input[name='message[image]']").val() == "") {
-    alert('入力してください');
-    return false;
+     alert('入力してください');
+     return false;
     } else {
     e.preventDefault();
-    var formData = new FormData(this);
+     var formData = new FormData(this);
      var url = $(this).attr('action')
     }
+
     $.ajax({
       url: url,
       type: "POST",
@@ -40,13 +41,14 @@ return html;
       processData: false,
       contentType: false
     })
+
     .done(function(data) {
       var html = buildHTML(data);
       $('.messeges__body__list').append(html)
       $('.message').val('')
       $('.hidden').val('');
       $('.messeges__body').animate({scrollTop: $('.messeges__body')[0].scrollHeight}, 'fast');
-       $('.submit').removeAttr("disabled");
+      $('.submit').removeAttr("disabled");
     })
     .fail(function(){
       alert('メッセージを入力してください');
