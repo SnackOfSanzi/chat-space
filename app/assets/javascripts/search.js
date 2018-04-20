@@ -51,6 +51,6 @@ $(function() {
   });
 
   $(document).on('click', '.chat-group-user__btn--remove',function(){
-    $('#chat-group-user-8').remove();
+    $(this).parent().remove();
   });
 });
