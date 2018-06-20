@@ -24,7 +24,7 @@ return html;
 }
 
   $('#new_message').on('submit', function(e){
-    if ($("input[name='message[body]']").val() == '' && $("input[name='message[image]']").val() == "") {
+    if ($("input[name='message[body]']").val() == '' && $("input[name='message[image]']").val() == '') {
      alert('入力してください');
      return false;
     } else {
